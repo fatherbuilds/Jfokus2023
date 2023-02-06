@@ -41,7 +41,6 @@ jobs:
       - name: ${{ matrix.command }}
         run: yarn ${{ matrix.command }}
 
-
-
-
-
+concurrency:
+    group: main-test-${{ github.ref }}-1
+    cancel-in-progress: true
