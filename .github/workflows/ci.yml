@@ -43,6 +43,7 @@ jobs:
 
   echo:
     uses: fatherbuilds/Jfokus2023/.github/workflows/_echo.yml@unit-test
+    needs: ci
     with:
       message: "hello world"
 
