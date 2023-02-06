@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  ci:
+  lint:
     strategy:
       matrix:
         os: [ ubuntu-latest, macos-latest, windows-latest ]
