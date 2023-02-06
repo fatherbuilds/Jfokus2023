@@ -49,6 +49,7 @@ jobs:
 
   stepsi:
     runs-on: ubuntu-latest
+    needs: ci
     steps:
       - uses: fatherbuilds/Jfokus2023/.github/tools/custom-actions/e2e/
 
