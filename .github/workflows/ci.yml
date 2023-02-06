@@ -50,7 +50,7 @@ jobs:
   stepsi:
     runs-on: ubuntu-latest
     steps:
-      - uses: fatherbuilds/Jfokus2023/.github/tools/custom-actions/e2e/
+      - uses: ./tools/custom-actions/e2e/
 
 concurrency:
   group: main-test-${{ github.ref }}-1
