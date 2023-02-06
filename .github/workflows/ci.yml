@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  lint:
+  ci:
     strategy:
       matrix:
         os: [ ubuntu-latest, macos-latest, windows-latest ]
@@ -23,6 +23,14 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 16
+          cache: 'yarn'
+
+      -name: Cache yarn dependencies
+        uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: |
+            **.
 
       - name: Install dependencies
         run: yarn install
