@@ -6,6 +6,12 @@ on:
       - main
 
 jobs:
+  lint:
+      strategy:
+          matrix:
+              command: [lint, test:ci, e2e]
+
+
   build-test:
     runs-on: ubuntu-latest
 
@@ -24,7 +30,7 @@ jobs:
         run: yarn install
 
       - name: Lint
-        run: yarn lint:ci
+        run: yarn {{$matrix.command}}
 
       - name: Test
         run: yarn test:ci
