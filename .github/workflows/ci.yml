@@ -47,10 +47,7 @@ jobs:
     with:
       message: "hello world"
 
-  stepsi:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: ./tools/custom-actions/e2e/
+
 
 concurrency:
   group: main-test-${{ github.ref }}-1
