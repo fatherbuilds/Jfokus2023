@@ -1,4 +1,4 @@
- name: CI
+name: CI
 
 on:
   pull_request:
@@ -31,6 +31,13 @@ jobs:
 
       - name: e2e
         run: yarn e2e
+
+  echo:
+    uses: fatherbuilds/Jfokus2023/.github/workflows/_echo.yml@unit-test
+    with:
+      message: "hello world"
+
+
 
 
 
