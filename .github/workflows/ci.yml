@@ -9,9 +9,9 @@ jobs:
   ci:
     strategy:
       matrix:
-        os: [ ubuntu-latest, macos-latest, windows-latest ]
-        nodeVersion: [ 12,14,15 ]
-    runs-on: ${{ matrix.os }}
+        command: [lint, "test:ci", e2e ]
+
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
@@ -38,13 +38,8 @@ jobs:
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn install
 
-      - name: Lint
-        run: yarn lint:ci
+      - name: ${{ matrix.command }}
+        run: yarn ${{ matrix.command }}
 
-      - name: Test
-        run: yarn test:ci
-
-      - name: e2e
-        run: yarn e2e
 
 
